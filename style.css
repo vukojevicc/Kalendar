@@ -1,0 +1,136 @@
+#kalendar{
+    margin: 20px auto;
+    margin-bottom: 0;
+    border-spacing: 10px;
+    border-collapse: separate;
+    font-size: 15px;
+}
+#kalendar td, th{
+    padding: 5px;
+    text-align: center;
+}
+#naslov{
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+.red:first-of-type{
+    display: none;
+}
+#mesec{
+    font-weight: 100;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+.arrows{
+    font-size: 40px;
+    cursor: pointer;
+    display: inline-block;
+}
+.arrow_parent{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+.righ_arrow{
+    margin-left: 50px;
+}
+.left_arrow{
+    margin-right: 50px;
+}
+.tooltip {
+    position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 2px;
+    position: absolute;
+    z-index: 1;
+
+    /* pozicija tooltipa */
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+.novi_susret{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #536482;
+}
+.novi_susret form{
+    text-align: center;
+}
+.novi_susret input[type='submit']{
+    padding: 5px;
+}
+.novi_susret input,
+.novi_susret textarea,
+.novi_susret label{
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+.novi_susret textarea{
+    padding: 10px;
+    max-width: 300px;
+    border: 1px solid gray;
+}
+.novi_susret input[type='date']{
+    margin-top: 15px;
+}
+.novi_susret input[type='password']{
+    padding: 10px;
+    border: 1px solid gray;
+}
+.novi_susret h2{
+    font-size: 30px;
+    color: #536482;
+}
+.novi_susret{
+    display: none;
+}
+td{
+    cursor: default;
+}
+#novi_susret{
+    padding: 7px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    border: 1px solid #666666;
+    font-size: 15px;
+    background-image: linear-gradient(to bottom, #D2D2D2 0%,#EFEFEF 100%);
+    outline: none;
+}
+#novi_susret:hover{
+    border-color: #D31141;
+    color: #D31141;
+    background-color: #D2D2D2;
+    background-image: -webkit-linear-gradient(top, #EFEFEF 0%, #D2D2D2 100%);
+    background-image: linear-gradient(to bottom, #EFEFEF 0%,#D2D2D2 100%);
+}
+hr{
+    margin: 5px 0;
+}
+
