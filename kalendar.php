@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <<link rel="stylesheet" href="style.css"/>
-    <title>Document</title>
-</head>
-<body>
-    <div class="calendar_parent">
+<div class="calendar_parent">
     <table id="kalendar">
-        <caption id="naslov">Susreti</caption>
-        <caption id="mesec"></caption>
+        <caption id="naslov" class="naslov">Susreti</caption>
+        <caption id="mesec" class="mesec"></caption>
         <thead>
             <tr>
                 <th>p</th>
@@ -163,12 +153,12 @@ if (isset($_GET['sifra'])) {
                 $('#kalendar td')[j + 6].style.color = '#536482';
 
                 // Dodeljivanje crvenog okvira danasnjem datumu
-                if ($('#kalendar td')[j + 6].innerText == novi_datum.getDate()
+                if ($('#kalendar td')[i].innerText == novi_datum.getDate()
                         && $('#mesec').text().includes(meseci[novi_datum.getMonth()])
                         && $('#mesec').text().includes(novi_datum.getFullYear())) {
-                    $('#kalendar td')[j + 6].style.border = '1px solid red';
+                    $('#kalendar td')[i].style.border = '1px solid red';
                 } else {
-                    $('#kalendar td')[j + 6].style.border = 'none';
+                    $('#kalendar td')[i].style.border = 'none';
                 }
                 // Ubacivanje susreta u datume
 <?php
@@ -178,7 +168,7 @@ foreach ($susreti as $kljuc => $vrednost):
                     if ($('#kalendar td')[j + 6].innerText == <?php echo (int) date('d', $unix); ?>
                     && $('#mesec').text().includes(meseci[<?php echo (int) date('m', $unix) - 1; ?>])
                             && $('#mesec').text().includes(<?php echo (int) date('Y', $unix); ?>)) {
-                        $('#kalendar td')[j + 6].children[0].innerHTML += '<?php echo $vrednost->opis_susreta ?>' + '<hr>';
+                        $('#kalendar td')[j + 6].children[0].innerHTML += '<div>' + '* ' + `<?php echo $vrednost->opis_susreta ?>` + '</div>';
                         $('#kalendar td')[j + 6].children[0].classList.add('tooltiptext');
                         $('#kalendar td')[j + 6].style.color = 'red';
                         $('#kalendar td')[j + 6].classList.add('tooltip');
@@ -187,11 +177,11 @@ foreach ($susreti as $kljuc => $vrednost):
 
                 j++;
             }
-            // Brisanje poslednje horizontalne linije
-            var toolTipText = document.querySelectorAll('.tooltiptext');
-            toolTipText.forEach(function (span) {
-                span.children[span.children.length - 1].remove();
-            })
+            // Brisanje poslednjeg bordera
+//            var toolTipText = document.querySelectorAll('.tooltiptext');
+//            toolTipText.forEach(function (span) {
+//                span.children[span.children.length - 1].style.border = 'none';
+//            })
 
             var empty_rows = document.querySelectorAll('.last_two_rows');
             empty_rows.forEach(function (red) {
@@ -215,18 +205,17 @@ foreach ($susreti as $kljuc => $vrednost):
         var year_increment = 0;
         $('#novi_mesec').on('click', function () {
             if ($('#mesec').html().includes(meseci[11])) {
+                month_increment -= month_increment + novi_datum.getMonth() + 1;
                 year_increment++;
-                month_increment -= 12;
             }
-
             month_increment++;
             fill_calendar_table(month_increment, year_increment);
         })
 
         $('#prethodni_mesec').on('click', function () {
             if ($('#mesec').html().includes(meseci[0])) {
+                month_increment += 12;
                 year_increment--;
-                month_increment = 10;
             }
 
             month_increment--;
@@ -249,5 +238,3 @@ foreach ($susreti as $kljuc => $vrednost):
         })
     })
 </script>
-</body>
-</html>

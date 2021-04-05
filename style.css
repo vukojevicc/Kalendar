@@ -130,7 +130,10 @@ td{
     background-image: -webkit-linear-gradient(top, #EFEFEF 0%, #D2D2D2 100%);
     background-image: linear-gradient(to bottom, #EFEFEF 0%,#D2D2D2 100%);
 }
-hr{
-    margin: 5px 0;
-}
+.tooltiptext div{
+    /*    border-bottom: 1px solid white;*/
+        padding: 3px;
+        white-space: pre-wrap;
+        text-align: left;
+    }
 
